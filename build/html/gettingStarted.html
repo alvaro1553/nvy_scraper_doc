@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invscrap’s usage! &#8212; Invscrap  documentation</title>
+    <title>&lt;no title&gt; &#8212; Invscrap  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,6 +15,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Invscrap’s usage!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,62 +32,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="invscrap-s-usage">
-<h1>Invscrap’s usage!<a class="headerlink" href="#invscrap-s-usage" title="Permalink to this headline">¶</a></h1>
-<p>To start using invscrap clone first the repository of the project:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/alvaro1552/nvy_scraper.git
-</pre></div>
-</div>
-<p>Note that the –recursive option is used because the current doc is hosted in a
-different repository.</p>
-<p>Install the following dependencies: +Python 2.8, <a class="reference external" href="https://scrapy.org/">scrapy</a>,
-<a class="reference external" href="https://www.selenium.dev/">selenium</a></p>
-<p>Or alternatively, you can just do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>Don’t forget to select the path to your browser driver in main.py:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DRIVER_PATH</span> <span class="o">=</span> <span class="s1">&#39;path/to/driver&#39;</span>
-</pre></div>
-</div>
-<div class="section" id="running-scrapper">
-<h2>Running scrapper<a class="headerlink" href="#running-scrapper" title="Permalink to this headline">¶</a></h2>
-<p>Run the following command in the root folder of the project:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">dataSources</span><span class="o">/</span><span class="n">datasource</span><span class="o">.</span><span class="n">json</span>
-</pre></div>
-</div>
-<p>replacing ‘datasource’ with the name of the file containing the scrapping instructions.</p>
-<p>Note that the scrapped information is printed directly into the console. There is
-no support yet to feed this info into a json file, or to a db. Those features will
-be added later once the program is fully functional and has been completely tested.</p>
-</div>
-<div class="section" id="format-of-datasource-json">
-<h2>Format of datasource.json<a class="headerlink" href="#format-of-datasource-json" title="Permalink to this headline">¶</a></h2>
-<p>The contents of the json file is a set of instructions that should prevent the user from
-modifying the source code of the program when scrapping any website.</p>
-<p>Complete list of examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dataSources</span>
-</pre></div>
-</div>
-<p>See below the meaning and options available for each of the keys of the json file:</p>
-<div class="section" id="first-metada">
-<h3>First: “metada”<a class="headerlink" href="#first-metada" title="Permalink to this headline">¶</a></h3>
-<p>The metada key is not used by the scrapper in any way. It is only intended to
-the keep the list of scrapping instructions organised. Its usage is recommended
-but not mandatory. The program still works without the metadata entry.</p>
-<p>futureInese.json:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;metadata&quot;: {
-    &quot;baseURL&quot;: &quot;https://example.com/&quot;,
-    &quot;author&quot;: &quot;firstname lastname&quot;,
-    &quot;date&quot;: &quot;dd/mm/yyyy&quot;
-}
-</pre></div>
-</div>
-<p>Note that</p>
-</div>
-</div>
-</div>
-
+  
 
           </div>
           
@@ -109,19 +55,10 @@ but not mandatory. The program still works without the metadata entry.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Invscrap’s usage!</a></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
 
 
 

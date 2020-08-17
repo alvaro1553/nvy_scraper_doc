@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example of datasource.json &#8212; Invscrap  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="List of Steps available" href="stepsReference.html" />
+    <link rel="prev" title="Invscrap’s Getting Started!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="example-of-datasource-json">
+<h1>Example of datasource.json<a class="headerlink" href="#example-of-datasource-json" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="cm">/* futureInese.json */</span>
+<span class="p">{</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;baseURL&quot;</span><span class="o">:</span> <span class="s2">&quot;https://future.inese.es/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;Alvaro Garcia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;30/07/2020&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/nace-el-barcelona-insurhub-como-punto-encuentro-entre-startups-mutualidades-e-inversores/&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/lisa-y-hiscox-lanzan-un-ciberseguro-que-incorpora-el-concepto-insurance-in-a-box/&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/insurtech/page/1&quot;</span><span class="p">,</span> <span class="s2">&quot;pagination&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/tecnologia/page/1&quot;</span><span class="p">,</span> <span class="s2">&quot;pagination&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/nuevos-productos/page/1&quot;</span><span class="p">,</span> <span class="s2">&quot;pagination&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/opinion/page/1&quot;</span><span class="p">,</span> <span class="s2">&quot;pagination&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/startups/page/1&quot;</span><span class="p">,</span> <span class="s2">&quot;pagination&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/category/estrategia/&quot;</span><span class="p">,</span> <span class="s2">&quot;clickRepeat&quot;</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dataPoints&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@id,\&quot;td-outer-wrap\&quot;)]//*[contains(@class,\&quot;entry-title\&quot;)]//text()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;//meta[contains(@property,\&quot;published_time\&quot;)]/@content&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contents&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td-post-content\&quot;)]/descendant::*[self::p or self::h2]//text()&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;optPagination&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;npages&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[@class=\&quot;last\&quot;]//text()&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;targets&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td-module-title\&quot;)]//a/@href&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="s2">&quot;global&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;optClickRepeat&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;button&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td_ajax_load_more\&quot;)]&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;targets&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td-module-title\&quot;)]//a/@href&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="s2">&quot;global&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;global&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;dataPoints&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@id,\&quot;td-outer-wrap\&quot;)]//*[contains(@class,\&quot;entry-title\&quot;)]//text()&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;//meta[contains(@property,\&quot;published_time\&quot;)]/@content&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;contents&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td-post-content\&quot;)]/descendant::*[self::p or self::h2]//text()&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Invscrap</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Complete Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stepsReference.html">List of Steps</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Invscrap’s Getting Started!</a></li>
+      <li>Next: <a href="stepsReference.html" title="next chapter">List of Steps available</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, INVYO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/completeExample.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

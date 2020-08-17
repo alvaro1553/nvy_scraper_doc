@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Invscrap’s documentation! &#8212; Invscrap  documentation</title>
+    <title>Invscrap’s Getting Started! &#8212; Invscrap  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Invscrap’s usage!" href="gettingStarted.html" />
+    <link rel="next" title="Example of datasource.json" href="completeExample.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,17 +32,124 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-invscrap-s-documentation">
-<h1>Welcome to Invscrap’s documentation!<a class="headerlink" href="#welcome-to-invscrap-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="gettingStarted.html">Invscrap’s usage!</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gettingStarted.html#running-scrapper">Running scrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gettingStarted.html#format-of-datasource-json">Format of datasource.json</a></li>
+<li class="toctree-l1"><a class="reference internal" href="completeExample.html">Complete Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stepsReference.html">List of Steps</a></li>
 </ul>
-</li>
-</ul>
+</div>
+<div class="section" id="invscrap-s-getting-started">
+<h1>Invscrap’s Getting Started!<a class="headerlink" href="#invscrap-s-getting-started" title="Permalink to this headline">¶</a></h1>
+<p>To start using invscrap clone first the repository of the project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/alvaro1552/nvy_scraper.git
+</pre></div>
+</div>
+<p>Note the –recursive option as the project documentation is hosted in a different repository.</p>
+<p>Install the following dependencies: +Python 2.8, <a class="reference external" href="https://scrapy.org/">scrapy</a>,
+<a class="reference external" href="https://www.selenium.dev/">selenium</a></p>
+<p>Or alternatively, you can just do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Don’t forget to select the path to your browser driver in main.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DRIVER_PATH</span> <span class="o">=</span> <span class="s1">&#39;path/to/driver&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="running-scrapper">
+<h2>Running scrapper<a class="headerlink" href="#running-scrapper" title="Permalink to this headline">¶</a></h2>
+<p>Run the following command in the root folder of the project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">datasource</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>replacing ‘datasource’ with the filename of the file containing the scrapping instructions.</p>
+<p>Note that the scrapped information is printed directly into the console. There is
+no support yet to feed this info into a json file, or to a db. Those features will
+be added later once the program is fully functional and has been completely tested.</p>
+</div>
+<div class="section" id="build-your-first-datasource-json">
+<h2>Build your first datasource.json<a class="headerlink" href="#build-your-first-datasource-json" title="Permalink to this headline">¶</a></h2>
+<p>The contents of the json file is a set of instructions that should allow the user
+to scrape the contents of any website without modifying the source code of the program.</p>
+<p>Complete list of examples of datasource.json files can be found in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dataSources</span>
+</pre></div>
+</div>
+<p>Each file consists of an unique js object, whose keys’ meaning and options can be found below.</p>
+<p>REMEMBER: json does not support comments, which are only included in snippets below for clarification.</p>
+<div class="section" id="key-metada">
+<h3>Key: “metada”<a class="headerlink" href="#key-metada" title="Permalink to this headline">¶</a></h3>
+<p>The metada key is not used by the scrapper in any way. It is only intended to
+keep the list of scrapping instructions organised. Its usage is recommended
+but not mandatory.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;baseURL&quot;</span><span class="o">:</span> <span class="s2">&quot;https://example.com/&quot;</span><span class="p">,</span> <span class="cm">/*website to scrap*/</span>
+    <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;firstname lastname&quot;</span><span class="p">,</span>    <span class="cm">/*author of the file*/</span>
+    <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;dd/mm/yyyy&quot;</span>               <span class="cm">/*date of creation of json file*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="key-start">
+<h3>Key: “start”<a class="headerlink" href="#key-start" title="Permalink to this headline">¶</a></h3>
+<p>The start key must contain a list of ‘Starting Points’. Each entry within the list
+is composed of ‘startUrl’ + ‘step’. The step is the action to be taken by the
+algorithm after reaching the startUrl.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;https://example.com/path/to/target1&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;https://example.com/path/to/target2&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">],</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p>In the example above, each URL corresponds to the url of a <strong>Target</strong>, which is just a
+name used to refer to the page URL containing the <strong>Data Points</strong> or info to be scrapped.</p>
+<p>Each <strong>step</strong> defined within “start” must have another key within the json file
+indicating the <em>options for that step</em>. Keep reading…</p>
+</div>
+<div class="section" id="key-optparsetarget">
+<h3>Key: “optParseTarget”<a class="headerlink" href="#key-optparsetarget" title="Permalink to this headline">¶</a></h3>
+<p>Options for the <strong>parseTarget</strong> step.</p>
+<p>Note that all of the ‘parseTarget’ steps within ‘start’ will use the same options.
+No support yet for different options for different targets.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dataPoints&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;//h1/text()&quot;</span><span class="p">,</span>   <span class="cm">/* XPATH selector */</span>
+        <span class="s2">&quot;contents&quot;</span><span class="o">:</span> <span class="s2">&quot;//p//text()&quot;</span> <span class="cm">/* XPATH selector */</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Note that the name of the key follows the pattern: <strong>opt</strong> + <strong>StepNameInCamelCase</strong>.</p>
+<p>This way, after reaching the “StartURL” given above, the program will scrap the
+data specified within the <strong>datapoint</strong> in the <em>optParseTarget</em> key.</p>
+</div>
+<div class="section" id="complete-example">
+<h3>Complete Example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h3>
+<p>The example below fetches the datapoints ‘title’ and ‘data’ from both of the articles
+defined in “start”</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="cm">/* futureInese.json */</span>
+<span class="p">{</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;baseURL&quot;</span><span class="o">:</span> <span class="s2">&quot;https://future.inese.es/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;Alvaro Garcia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;30/07/2020&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/nace-el-barcelona-insurhub-como-punto-encuentro-entre-startups-mutualidades-e-inversores/&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;https://future.inese.es/lisa-y-hiscox-lanzan-un-ciberseguro-que-incorpora-el-concepto-insurance-in-a-box/&quot;</span><span class="p">,</span> <span class="s2">&quot;parseTarget&quot;</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;optParseTarget&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dataPoints&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@id,\&quot;td-outer-wrap\&quot;)]//*[contains(@class,\&quot;entry-title\&quot;)]//text()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;//meta[contains(@property,\&quot;published_time\&quot;)]/@content&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contents&quot;</span><span class="o">:</span> <span class="s2">&quot;//*[contains(@class,\&quot;td-post-content\&quot;)]/descendant::*[self::p or self::h2]//text()&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>SEE: <a class="reference internal" href="completeExample.html"><span class="doc">Complete Example Explained</span></a> for a more advanced example of how to set up a datasource.json file</p>
+</div>
 </div>
 </div>
 
@@ -65,14 +172,15 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="gettingStarted.html">Invscrap’s usage!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="completeExample.html">Complete Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stepsReference.html">List of Steps</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="gettingStarted.html" title="next chapter">Invscrap’s usage!</a></li>
+      <li>Next: <a href="completeExample.html" title="next chapter">Example of datasource.json</a></li>
   </ul></li>
 </ul>
 </div>
