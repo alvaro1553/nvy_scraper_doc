@@ -50,3 +50,7 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# Solve error from 'read the docs' when building: Sphinx error: master file /home/docs/checkouts/.../contents.rst not found
+# SEE: https://stackoverflow.com/a/56448499
+master_doc = 'index'
